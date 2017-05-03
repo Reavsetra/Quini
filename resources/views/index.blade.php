@@ -3,11 +3,22 @@
 @section('title', 'Bienvenidos')
 
 @section('content')
-    <!-- Anchors (links) -->
-<a href="about.html" class="button">Learn More</a>
-<a href="#features" class="button">View All Features</a>
-
-<!-- Buttons (actions) -->
-<button type="button" class="success button">Save</button>
-<button type="button" class="alert button">Delete</button>
+    @component('components.metrics')
+        @slot('restantes')
+            <span>$1,000.00</span>
+            <p>Tiempo restante para el cierre</p>
+        @endslot
+        @slot('bolsa')
+            <span>$1,000.00</span>
+            <p>Bolsa Acumulada</p>
+        @endslot
+        @slot('usuarios')
+            <span>200</span>
+            <p>Usuarios</p>
+        <@endslot></@endslot>
+        @slot('semana')
+            <span>230</span>
+            <p>Quinielas</p>
+        @endslot
+    @endcomponent
 @endsection

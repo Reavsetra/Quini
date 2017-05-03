@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     </head>
     <body>
-        @include('partials.nav');
+        @include('partials.nav')
         
 
         <div class="container">

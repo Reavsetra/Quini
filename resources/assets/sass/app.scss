@@ -1,15 +1,16 @@
 
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url('https://fonts.googleapis.com/css?family=Mukta+Vaani');
+@import url('https://fonts.googleapis.com/css?family=Pavanam');
 
 // Variables
 @import "variables";
 @import "settings";
+@import "mixins";
 
-// Bootstrap
+
+// Foundation
 @import "node_modules/foundation-sites/scss/foundation";
-
-//@import 'foundation';
 
 @include foundation-global-styles;
 @include foundation-grid;
