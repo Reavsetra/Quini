@@ -10,9 +10,9 @@
             <div class="small-4 columns">
                 <input id="nombre" type="text" name="nombre" value="{{ old('nombre') }}" required autofocus>
             </div>
-            @if ($errors->has('name'))
+            @if ($errors->has('nombre'))
                 <span class="help-block">
-                    <strong>{{ $errors->first('name') }}</strong>
+                    <strong>{{ $errors->first('nombre') }}</strong>
                 </span>
             @endif
         </div>
