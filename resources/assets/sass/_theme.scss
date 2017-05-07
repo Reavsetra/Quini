@@ -107,6 +107,32 @@ nav{
         align-items: flex-start;
         justify-content: center;
         padding: 50px;
+        ul{
+            width: 400px;
+            margin: auto;
+            list-style: none;
+            li{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 50px auto;
+                h4{
+                    color: $themeE;
+                    text-align: right;
+                    margin: 0px;
+                    font-size: 1.1em;
+                    padding: 25px;
+                    flex-basis: 50%;
+                    border-right: solid 2px $themeE;
+                }
+                span{
+                    text-align: left;
+                    flex-basis: 50%;
+                    color: lighten(black , 40%);
+                    padding: 25px;
+                }
+            }
+        }
     }
     .user-head{
         display: flex;
@@ -117,8 +143,8 @@ nav{
             flex-basis: 75%;
         }
         p{
-            border-left:solid 1px $themeA;
-            color: $themeA;
+            border-left:solid 1px darken($themeF, 40%);
+            color: darken($themeF, 40%);
             font-size: 1.2em; 
             padding: 10px;
             text-align: right;

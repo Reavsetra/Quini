@@ -19,9 +19,9 @@
                     <p><i class="fa fa-usd"></i> Creditos: <span>100</span></p>
                 </div>
                 <ul>
-                    <li>Dirección: {{ Auth::user()->direccion }}</li>
-                    <li>Correo: {{ Auth::user()->email }}</li>
-                    <li>Usuario: {{ Auth::user()->nombre_usuario }}</li>
+                    <li><h4>Usuario:</h4> <span>{{ Auth::user()->nombre_usuario }}</span></li>
+                    <li><h4>Fecha de Nacimiento:</h4> <span>{{ Auth::user()->fecha_nacimiento }}</span></li>
+                    <li><h4>Dirección:</h4> <span>{{ Auth::user()->direccion }}</span></li>
                 </ul>
             </div>
         </div>
