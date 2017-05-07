@@ -15,7 +15,7 @@
         @slot('usuarios')
             <span>200</span>
             <p>Usuarios</p>
-        <@endslot></@endslot>
+        @endslot
         @slot('semana')
             <span>230</span>
             <p>Quinielas</p>

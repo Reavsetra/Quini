@@ -26,7 +26,7 @@ Route::get('resultados', function () {
 
 Auth::routes();
 
-Route::get('usuario/', 'UsuarioController@index');
+Route::get('usuario/', 'UsuarioController@index')->name('profile');
 Route::get('usuario/{id}', 'UsuarioController@show');
 
 Route::get('/home', 'HomeController@index')->name('home');

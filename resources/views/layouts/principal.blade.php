@@ -6,13 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('title')</title>
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <script src="https://use.fontawesome.com/e322930bf9.js"></script>
     </head>
     <body>
         @include('partials.nav')
         
-
-        <div class="container">
-            @yield('content')
-        </div>
+        @yield('content') 
     </body>
 </html>
