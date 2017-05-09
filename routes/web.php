@@ -11,10 +11,6 @@
 |
 */
 
-// Rutas solo permitidas a usuarios registrados
-Route::group(['middleware'=>'auth'], function(){
-});
-
 Route::get('/', function () {
     return view('index');
 });
@@ -23,10 +19,12 @@ Route::get('resultados', function () {
     return view('resultados');
 })->name('resultados');
 
-
 Auth::routes();
 
 Route::get('usuario/', 'UsuarioController@index')->name('profile');
+
 Route::get('usuario/{id}', 'UsuarioController@show');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('usuario/{id}/sorteos', 'SorteoController');
+
+//Route::get('/home', 'HomeController@index')->name('home');
