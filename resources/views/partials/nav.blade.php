@@ -1,4 +1,4 @@
-<nav>
+<nav class="principal">
     <ul class="primary">
         <li><a href="">¿Cómo puedo Participar?</a></li>
         <li><a href="">Quiero Jugar</a></li>
@@ -10,7 +10,7 @@
             <li><a href="{{ route('register') }}">Registrar</a></li>
         @else
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <a href="{{ route('profile') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                     {{ Auth::user()->nombre_usuario }} <span class="caret"></span>
                 </a>
 
