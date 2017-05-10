@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSorteo extends Migration
+class CreateSorteosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateSorteo extends Migration
      */
     public function up()
     {
-        Schema::create('sorteo', function (Blueprint $table) {
-            $table->increments('id_sorteo');
-            $table->string('convinacion');
+        Schema::connection('principal')->create('sorteos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('alineacion');
+            $table->string('fecha_inicio');
             $table->timestamps();
-        });
+        }); 
     }
 
     /**
@@ -27,6 +28,6 @@ class CreateSorteo extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sorteo');
+        Schema::dropIfExists('sorteos');
     }
 }

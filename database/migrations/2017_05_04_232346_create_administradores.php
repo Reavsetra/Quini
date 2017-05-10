@@ -20,7 +20,6 @@ class CreateAdministradores extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->integer('id_tipo_admin')->references('id_tipo_admin')->on('tipo_administrador');
-
             $table->timestamps();
         });
     }

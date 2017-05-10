@@ -16,9 +16,9 @@
                 <div class="card">
                     <div class="user-head">
                         <h3>{{ Auth::user()->nombre }}</h3>
-                        <p><i class="fa fa-usd"></i> Creditos: <span>100</span></p>
+                        <p><i class="fa fa-usd"></i> Creditos: <span>{{ decrypt(Auth::user()->creditos) }}</span></p>
                     </div>
-                    @yield('content') 
+                    @yield('content')
                 </div>
             </div>
         </div>

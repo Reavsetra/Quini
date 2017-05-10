@@ -23,6 +23,8 @@ Auth::routes();
 
 Route::get('usuario/', 'UsuarioController@index')->name('profile');
 
+Route::get('usuario/{id}/recarga', 'UsuarioController@add_money')->name('profile.recarga');
+
 Route::get('usuario/{id}', 'UsuarioController@show');
 
 Route::resource('usuario/{id}/sorteos', 'SorteoController');
