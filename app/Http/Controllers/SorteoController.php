@@ -2,6 +2,8 @@
 
 namespace Quin\Http\Controllers;
 
+
+use Quin\User;
 use Illuminate\Http\Request;
 
 class SorteoController extends Controller

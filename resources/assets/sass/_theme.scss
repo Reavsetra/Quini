@@ -263,6 +263,35 @@ nav{
             }
         }
     }
+    table{
+        thead{
+            background-color: $themeD;
+            color: white;
+            tr{
+                th{
+                    text-align: center;
+                }
+            }
+        }
+        tbody{
+            tr{
+                td{
+                    text-align: center;
+                    a{
+                        width: 100px;
+                        margin: auto;
+                        border-radius: 5px;
+                        border: solid 2px white;
+                        display: block;
+                        text-align: center;
+                        background-color: $themeA;
+                        color:white;
+                        padding: 3px;
+                    }
+                }
+            }
+        }
+    }
 }
 footer{
     position: relative ;
