@@ -26,7 +26,7 @@
                     {!!Form::file('path')!!}
                   </div>
                   <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
+                    <input class="file-path validate" type="text" >
                   </div>
               </div>
 
@@ -43,48 +43,24 @@
 
   <div class="container">
     <div class="row">
-<div class="col s12 m3">
-<div class="card">
-  <div class="card-image">
-    <img src="img/6.png">
-    <span class="card-title">Cruz Azul</span>
-    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">create</i></a>
-  </div>
+    @foreach ($equipos as $equipo)
 
-</div>
-</div>
+        <div class="col s12 m3">
+        <div class="card">
+          <div class="card-image">
+            <img src="/img/equipos/{{$equipo->path}}">
+            <span class="card-title white col m12 grey-text text-darken-4" style="text-transform:uppercase; " >{{$equipo->equipo}}</span>
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">create</i></a>
+          </div>
 
-<div class="col s12 m3">
-<div class="card">
-  <div class="card-image">
-    <img src="img/5.png">
-    <span class="card-title">Xolos</span>
-    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">create</i></a>
-  </div>
-
-</div>
-</div>
+        </div>
+        </div>
 
 
-<div class="col s12 m3">
-<div class="card">
-  <div class="card-image">
-    <img src="img/17.png">
-    <span class="card-title">Toluca</span>
-    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">create</i></a>
-  </div>
-</div>
-</div>
+      @endforeach
 
-<div class="col s12 m3">
-<div class="card">
-  <div class="card-image">
-    <img src="img/7.png">
-    <span class="card-title grey darken-4 col m12" style="opacity:0.8;">Chivas Guadalajara</span>
-    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">create</i></a>
-  </div>
-</div>
-</div>
+
+
 
 </div>
   </div>

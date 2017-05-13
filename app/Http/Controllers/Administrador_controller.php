@@ -3,6 +3,7 @@
 namespace Quin\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Quin\Administradores;
 
 class Administrador_controller extends Controller
 {
@@ -13,7 +14,7 @@ class Administrador_controller extends Controller
      */
     public function index()
     {
-        return view('Administradores.home');
+
     }
 
     /**
@@ -23,7 +24,8 @@ class Administrador_controller extends Controller
      */
     public function create()
     {
-        return view('Administradores.register');
+      $admins=Administradores::select()->get();
+        return view('Administradores.register',['admins'=>$admins]);
     }
 
     /**
@@ -34,7 +36,8 @@ class Administrador_controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+      Administradores::create($request->all());
+      return redirect('admin/create');
     }
 
     /**
