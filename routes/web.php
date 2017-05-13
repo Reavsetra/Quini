@@ -10,10 +10,25 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('admin/home', 'Administrador_controller');
+Route::resource('equipos','EquiposController');
+Route::resource('sorteos','SorteosController');
+
+
+
+
+
+
+
+
+
 
 // Rutas solo permitidas a usuarios registrados
 Route::group(['middleware'=>'auth'], function(){
 });
+
+
+
 
 Route::get('/', function () {
     return view('index');
@@ -28,5 +43,8 @@ Auth::routes();
 
 Route::get('usuario/', 'UsuarioController@index')->name('profile');
 Route::get('usuario/{id}', 'UsuarioController@show');
+
+Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
