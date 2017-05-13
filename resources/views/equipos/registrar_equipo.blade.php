@@ -9,26 +9,32 @@
           Crear Equipo
         </div>
         <div class="card-content white">
+
+
+
+        {!!Form::open(['route'=>'equipos.store','method'=>'POST','files'=>true])!!}
+
               <div class="input-field col m6">
-                <input type="text" name="" value="" id="equipo">
-                <label for="equipo">Equipo</label>
+                {!!Form::label('Equipo','Equipo',['for'=>'nom_equipo'])!!}
+                {!!Form::text('equipo',null,['id'=>'nom_equipo'])!!}
               </div>
+
+
               <div class="file-field input-field col m6">
                   <div class="btn blue darken-3">
                     <span>Logo</span>
-                    <input type="file">
+                    {!!Form::file('path')!!}
                   </div>
                   <div class="file-path-wrapper">
                     <input class="file-path validate" type="text">
                   </div>
               </div>
 
-
-
+          {!!Form::submit('Registrar',['class'=>'btn blue'])!!}
+          {!!Form::close()!!}
           </div>
 
 
-         <button type="button" name="button" class="btn center">Enviar</button>
 
 
         </div>

@@ -12,7 +12,7 @@
 <li><div class="divider"></div></li>
 <li><a class="subheader">Menu de Acciones</a></li>
 <li><a href="/sorteos"><i class="material-icons">add</i>Crear nuevo Sorteo</a></li>
-<li><a href="/equipos"><i class="material-icons">settings_applications</i>Configuracion de Equipos</a></li>
+<li><a href="/equipos/create"><i class="material-icons">settings_applications</i>Configuracion de Equipos</a></li>
 <li><a class="waves-effect" href="#!"><i class="material-icons">settings</i>Configurar Cuentas</a></li>
 </ul>
 <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>

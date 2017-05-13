@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSorteoUsuario extends Migration
+class CreateEquipos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateSorteoUsuario extends Migration
      */
     public function up()
     {
-        Schema::create('sorteo_usuario', function (Blueprint $table) {
-            $table->primary('id_usuario')->references('id_usuario')->on('usuarios');
-            $table->primary('id_sorteo')->references('id_sorteo')->on('sorteo')->onUpdate('cascade');
+        Schema::connection('administracion')->create('equipos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('equipo');
+            $table->string('liga');
+            $table->string('path');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateSorteoUsuario extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sorteo_usuario');
+        Schema::dropIfExists('equipos');
     }
 }

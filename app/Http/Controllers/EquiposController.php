@@ -3,6 +3,7 @@
 namespace Quin\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Quin\Equipos;
 
 class EquiposController extends Controller
 {
@@ -13,7 +14,8 @@ class EquiposController extends Controller
      */
     public function index()
     {
-      return view('equipos.registrar_equipo');
+      $equipos = Equipos::all();
+        return view('equipos.registrar_equipo',"equipos=$equipos");
     }
 
     /**
@@ -23,7 +25,7 @@ class EquiposController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -34,7 +36,8 @@ class EquiposController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      Equipos::create($request->all());
+      return "Listo";
     }
 
     /**
