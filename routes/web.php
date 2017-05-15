@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,10 +9,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::resource('admin', 'Administrador_controller');
 Route::resource('equipos','EquiposController');
 Route::resource('sorteos','SorteosController');
-
 
 Route::get('/', function () {
     return view('index');

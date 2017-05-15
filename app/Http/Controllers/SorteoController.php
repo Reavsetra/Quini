@@ -4,6 +4,7 @@ namespace Quin\Http\Controllers;
 
 
 use Quin\User;
+use Quin\Combinacion;
 use Illuminate\Http\Request;
 
 class SorteoController extends Controller
@@ -45,6 +46,8 @@ class SorteoController extends Controller
     public function store(Request $request)
     {
         //
+        Combinacion::create($request->all());
+        return view('usuario.nuevo-sorteo');
     }
 
     /**
