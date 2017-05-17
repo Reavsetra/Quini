@@ -11,7 +11,7 @@
         @else
             <li class="dropdown">
                 <a href="{{ route('profile') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                    {{ Auth::user()->nombre_usuario }} <span class="caret"></span>
+                    {{ Auth::user()->nombre_usuario }}<span class="caret"></span>
                 </a>
 
                 <ul class="dropdown-menu" role="menu">

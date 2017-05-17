@@ -3,11 +3,12 @@
 namespace Quin;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Combinacion extends Model
 {
     //
     protected $table = 'combinaciones';
 
-    protected $filable = ['id_usuario', 'id_sorte', 'combinacion'];
+    protected $fillable = ['id_usuario', 'id_sorteo', 'combinacion'];
 }

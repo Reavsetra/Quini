@@ -9,31 +9,18 @@
             <thead>
                 <tr>
                     <th>Quiniela N°</th>
-                    <th>Fecha Inicio</th>
+                    <th>Comprada</th>
                     <th>Combinación</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>004</td>
-                    <td>12-05-2017</td>
-                    <td><a>Ver</a></td>
-                </tr>
-                <tr>
-                    <td>003</td>
-                    <td>12-05-2017</td>
-                    <td><a>Ver</button></td>
-                </tr>
-                <tr>
-                    <td>002</td>
-                    <td>12-05-2017</td>
-                    <td><a>Ver</a></td>
-                </tr>
-                <tr>
-                    <td>001</td>
-                    <td>12-05-2017</td>
-                    <td><a>Ver</a></td>
-                </tr>
+                @foreach($combinaciones as $combinacion)
+                    <tr>
+                        <td>{{$combinacion-> id_sorteo}}</td>
+                        <td>{{$combinacion-> created_at}}</td>
+                        <td><a href="{{ route('sorteos.show', ['id' => auth()->user()->nombre_usuario, 'sorteo'=>$combinacion-> id]) }}">Ver</a></td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

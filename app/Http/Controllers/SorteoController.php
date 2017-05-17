@@ -6,6 +6,7 @@ namespace Quin\Http\Controllers;
 use Quin\User;
 use Quin\Combinacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SorteoController extends Controller
 {
@@ -21,8 +22,9 @@ class SorteoController extends Controller
     public function index()
     {
         //
+        $combinaciones = Combinacion::where('id_usuario', Auth::user()->id_usuario)->get();
         
-        return view('usuario.sorteos');
+        return view('usuario.sorteos')->with(['combinaciones'=> $combinaciones]);
     }
 
     /**
@@ -45,9 +47,13 @@ class SorteoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        Combinacion::create($request->all());
-        return view('usuario.nuevo-sorteo');
+        $this->validate($request, [
+            "combinacion"=> 'required'
+        ]);
+        
+        $combinacion = Combinacion::create($request->only('id_usuario', 'id_sorteo', 'combinacion'));
+
+        return redirect()->route('sorteos.index', ['id' =>  Auth::user()->nombre_usuario]);
     }
 
     /**
@@ -56,9 +62,11 @@ class SorteoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($user, $id)
     {
-        //
+        $combinacion = Combinacion::where('combinaciones.id', $id)->join('sorteos', 'sorteos.id', '=', 'combinaciones.id_sorteo')->select('combinaciones.*', 'sorteos.alineacion', 'sorteos.fecha_inicio')->first();
+
+        return view('usuario.combinacion')->with(['combinacion'=> $combinacion]);
     }
 
     /**
@@ -69,7 +77,6 @@ class SorteoController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
