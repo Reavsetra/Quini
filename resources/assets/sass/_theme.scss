@@ -218,13 +218,16 @@ nav{
         flex-wrap: wrap;
         .partido{
             padding: 10px;
-            flex-basis: 47%;
+            flex-basis: 45%;
             margin: 5px;
             display: flex;
             align-items: center;
             flex-wrap: wrap;
             border-radius: 5px;
             border: solid 1px lighten($themeA , 20%);
+            h3{
+                width: 100%;
+            }
             .equipo{
                 text-align: center;
                 width: 50%;

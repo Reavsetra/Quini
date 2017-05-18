@@ -5,6 +5,7 @@ namespace Quin\Http\Controllers;
 
 use Quin\User;
 use Quin\Combinacion;
+use Quin\Sorteo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,6 +36,7 @@ class SorteoController extends Controller
     public function create()
     {
         //
+        $sorteo = 
 
         return view('usuario.nuevo-sorteo');
     }
@@ -46,11 +48,7 @@ class SorteoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $this->validate($request, [
-            "combinacion"=> 'required'
-        ]);
-        
+    {   
         $combinacion = Combinacion::create($request->only('id_usuario', 'id_sorteo', 'combinacion'));
 
         return redirect()->route('sorteos.index', ['id' =>  Auth::user()->nombre_usuario]);

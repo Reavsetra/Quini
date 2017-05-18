@@ -7,12 +7,17 @@
         <title>@yield('title')</title>
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <script src="https://use.fontawesome.com/e322930bf9.js"></script>
+        <script>
+            window.Laravel = {!! json_encode([
+                'csrfToken' => csrf_token(),
+            ]) !!};
+        </script>
     </head>
     <body>
         @include('partials.nav')
         <div class="expanded row user-profile">
             @include('partials.nav-profile')
-            <div class="columns user-info">
+            <div id="app" class="columns user-info">
                 <div class="card">
                     <div class="user-head">
                         <h3>{{ Auth::user()->nombre }}</h3>
@@ -23,5 +28,6 @@
             </div>
         </div>
         @include('partials.footer')
+        <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>
