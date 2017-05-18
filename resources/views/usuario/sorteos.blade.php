@@ -9,7 +9,7 @@
             <thead>
                 <tr>
                     <th>Quiniela N°</th>
-                    <th>Comprada</th>
+                    <th>ID Combinación</th>
                     <th>Combinación</th>
                 </tr>
             </thead>
@@ -17,7 +17,7 @@
                 @foreach($combinaciones as $combinacion)
                     <tr>
                         <td>{{$combinacion-> id_sorteo}}</td>
-                        <td>{{$combinacion-> created_at}}</td>
+                        <td>{{$combinacion-> id}}</td>
                         <td><a href="{{ route('sorteos.show', ['id' => auth()->user()->nombre_usuario, 'sorteo'=>$combinacion-> id]) }}">Ver</a></td>
                     </tr>
                 @endforeach

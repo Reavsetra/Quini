@@ -25,66 +25,7 @@
 </template>
 
 <script>
-    console.log(id_usuario);
-    var equipos = [
-        {
-            "id":1,
-            "equipo":"America",
-            "url":"img/equipos/america.jpg"
-        },{
-            "id":2,
-            "equipo":"Cruz Azul",
-            "url":"img/equipos/america.jpg"
-        },{
-            "id":3,
-            "equipo":"Chivas",
-            "url":"img/equipos/america.jpg"
-        },{
-            "id":4,
-            "equipo":"Monterrey",
-            "url":"img/equipos/america.jpg"
-        },{
-            "id":6,
-            "equipo":"Pumas",
-            "url":"img/equipos/america.jpg"
-        }];
-    var sorteo = "1-2,2-3,3-1,4-1,4-3,2-4,1-6"
-    var splsorteo = sorteo.split(",");
-    function getLocal(current){
-        var equipo ={};
-        current = current-1;
-        if(equipos[current]){
-            equipo.name = equipos[current].equipo;
-            equipo.url = equipos[current].url;
-        }
-        return equipo;
-    };
-    function getVisitante(current){
-        var equipo ={};
-        current = current-1;
-        if(equipos[current]){
-            equipo.name = equipos[current].equipo;
-            equipo.url = equipos[current].url;
-        }
-        return equipo;
-    };
-    function str2obj(str, index){
-        var obj = {};
-        var dash = str.indexOf("-");
-        var local = str.slice(0,dash);
-        var visitante = str.slice(dash+1,str.length);
-        var localData = getLocal(local);
-        var visitanteData = getVisitante(visitante);
-        obj.id_partido = index+1;
-        obj.localName = localData.name;
-        obj.localUrl = localData.url;
-        obj.visitanteName = visitanteData.name;
-        obj.visitanteUrl = visitanteData.url;
-        obj.check = [];
-        return obj;
-    }
-    var sorteoFinal = splsorteo.map(str2obj);
-    var newSorteo = str2obj(splsorteo[0]);
+    
     //var equipos = sorteoFinal.find(getVisitante);
     export default {
         data () { /* ES2015 equivalent for: `data: function () {` */
@@ -92,7 +33,7 @@
                 sorteo: sorteoFinal,
                 req:{
                     id_usuario:id_usuario,
-                    id_sorteo:1,
+                    id_sorteo:id_sorteo,
                     combinacion: ""
                 }
             };
@@ -107,6 +48,10 @@
                     return str;
                 }
             },
+            clearChecks: function(obj){
+                obj.check="";
+                return obj;
+            },
             create: function(data){
                 axios.post('http://localhost:3000/usuario/reavsetra/sorteos/', {
                     id_usuario: data.id_usuario,
@@ -114,12 +59,27 @@
                     combinacion: data.combinacion.toString(),
                 } ).then(response => {
                     console.log(response);
+                    this.sorteo.map(this.clearChecks);
                 });
             },
             genera: function () {
                 var data = this.sorteo;
                 this.req.combinacion = data.map(this.getChecks);
-                this.create(this.req);
+                let indice = 1;
+                for (var i = 0; i < data.length; i++) { 
+                    if(data[i].check.length<=0){
+                        alert("Selecciona al menos una opción para cada partido");
+                        break;
+                    }else {
+                        if( indice === data.length){
+                            console.log("Todo OK");
+                            this.create(this.req);
+                        } else {
+                            indice++
+                        }
+                    };
+                }
+                //
             }
         }
     }

@@ -35,10 +35,9 @@ class SorteoController extends Controller
      */
     public function create()
     {
-        //
-        $sorteo = 
+        $sorteo = Sorteo::where('id',1)->first();
 
-        return view('usuario.nuevo-sorteo');
+        return view('usuario.nuevo-sorteo')->with(['sorteo'=> $sorteo]);
     }
 
     /**
