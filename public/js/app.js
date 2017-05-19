@@ -1729,8 +1729,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-
-//var equipos = sorteoFinal.find(getVisitante);
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         /* ES2015 equivalent for: `data: function () {` */
@@ -1760,7 +1758,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         create: function create(data) {
             var _this = this;
 
-            axios.post('http://localhost:3000/usuario/reavsetra/sorteos/', {
+            axios.post('http://localhost:3000/usuario/reavsetra/combinacion/', {
                 id_usuario: data.id_usuario,
                 id_sorteo: data.id_sorteo,
                 combinacion: data.combinacion.toString()

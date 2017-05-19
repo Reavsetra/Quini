@@ -9,7 +9,7 @@ use Quin\Sorteo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class SorteoController extends Controller
+class CombinacionController extends Controller
 {
     public function __construct()
     {

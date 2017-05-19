@@ -1,8 +1,8 @@
 <nav class="principal">
     <ul class="primary">
-        <li><a href="">¿Cómo puedo Participar?</a></li>
-        <li><a href="">Quiero Jugar</a></li>
-        <li><a href="/resultados">Resultados</a></li>
+        <li><a href="{{ route('como') }}">¿Cómo puedo Participar?</a></li>
+        <li><a href="{{ route('register') }}">Quiero Jugar</a></li>
+        <li><a href="{{ route('resultados') }}">Resultados</a></li>
     </ul>
     <ul class="secondary">
         @if (Auth::guest())

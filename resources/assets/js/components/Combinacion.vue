@@ -25,8 +25,6 @@
 </template>
 
 <script>
-    
-    //var equipos = sorteoFinal.find(getVisitante);
     export default {
         data () { /* ES2015 equivalent for: `data: function () {` */
             return {
@@ -53,7 +51,7 @@
                 return obj;
             },
             create: function(data){
-                axios.post('http://localhost:3000/usuario/reavsetra/sorteos/', {
+                axios.post('http://localhost:3000/usuario/reavsetra/combinacion/', {
                     id_usuario: data.id_usuario,
                     id_sorteo: data.id_sorteo,
                     combinacion: data.combinacion.toString(),

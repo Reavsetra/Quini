@@ -4,9 +4,9 @@ namespace Quin\Http\Controllers\Auth;
 
 use Quin\Http\Controllers\Controller;
 use App\AuthenticatesAdmin;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth; 
 
-class LoginController extends Controller
+class AdminLoginController extends Controller
 {
     /*
     |--------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 @extends('layouts.principal')
 
 @section('content')
-    <div class="row access">
+    <div class="content row access">
         <div class="columns medium-6 small-12">
             <form class="card" role="form" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}

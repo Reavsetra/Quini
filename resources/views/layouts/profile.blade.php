@@ -17,7 +17,7 @@
         @include('partials.nav')
         <div class="expanded row user-profile">
             @include('partials.nav-profile')
-            <div id="app" class="columns user-info">
+            <div id="app" class="small-12 medium-8 large-9 columns user-info">
                 <div class="card">
                     <div class="user-head">
                         <h3>{{ Auth::user()->nombre }}</h3>
