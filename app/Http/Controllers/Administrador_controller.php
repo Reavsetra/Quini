@@ -14,7 +14,8 @@ class Administrador_controller extends Controller
      */
     public function index()
     {
-
+        $admins=Administradores::select()->get();
+        return view('Administradores.register',['admins'=>$admins]);
     }
 
     /**

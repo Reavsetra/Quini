@@ -18,7 +18,7 @@
                     <tr>
                         <td>{{$combinacion-> id_sorteo}}</td>
                         <td>{{$combinacion-> id}}</td>
-                        <td><a href="{{ route('sorteos.show', ['id' => auth()->user()->nombre_usuario, 'sorteo'=>$combinacion-> id]) }}">Ver</a></td>
+                        <td><a href="{{ route('combinacion.show', ['id' => auth()->user()->nombre_usuario, 'sorteo'=>$combinacion-> id]) }}">Ver</a></td>
                     </tr>
                 @endforeach
             </tbody>

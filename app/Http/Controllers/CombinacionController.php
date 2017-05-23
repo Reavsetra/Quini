@@ -6,6 +6,7 @@ namespace Quin\Http\Controllers;
 use Quin\User;
 use Quin\Combinacion;
 use Quin\Sorteo;
+use Quin\Equipos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,8 +37,9 @@ class CombinacionController extends Controller
     public function create()
     {
         $sorteo = Sorteo::where('id',1)->first();
+        $equipos = json_encode(Equipos::all());
 
-        return view('usuario.nuevo-sorteo')->with(['sorteo'=> $sorteo]);
+        return view('usuario.nuevo-sorteo')->with(['sorteo'=> $sorteo])->with(['equipos'=> $equipos]);
     }
 
     /**
@@ -62,8 +64,12 @@ class CombinacionController extends Controller
     public function show($user, $id)
     {
         $combinacion = Combinacion::where('combinaciones.id', $id)->join('sorteos', 'sorteos.id', '=', 'combinaciones.id_sorteo')->select('combinaciones.*', 'sorteos.alineacion', 'sorteos.fecha_inicio')->first();
+        
+        $sorteo = Sorteo::where('id',1)->first();
+        
+        $equipos = json_encode(Equipos::all());
 
-        return view('usuario.combinacion')->with(['combinacion'=> $combinacion]);
+        return view('usuario.combinacion')->with(['combinacion'=> $combinacion])->with(['sorteo'=> $sorteo])->with(['equipos'=> $equipos]);
     }
 
     /**

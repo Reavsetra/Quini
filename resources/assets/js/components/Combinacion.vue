@@ -4,12 +4,12 @@
             <div class="partido" v-for="item in sorteo">
             <h3>Partido N° {{item.id_partido}} </h3>
                 <div class="equipo">
-                    <img src="http://fpoimg.com/60x60?text=Logo" alt="">
+                    <img v-bind:src="item.localUrl" alt="">
                     {{item.localName}}
                 </div>
                 <div class="equipo">
-                    <img src="http://fpoimg.com/60x60?text=Logo" alt="">
-                    {{item.visitanteName}}
+                    <img v-bind:src="item.visitanteUrl" alt="">
+                    {{item.visitanteName}} 
                 </div>
                 <div class="resultado">
                     <input v-bind:id="'local-'+item.id_partido" type="checkbox" value="L" v-model="item.check"><label  v-bind:for="'local-'+item.id_partido">Gana Local</label>
@@ -23,7 +23,7 @@
         </div>
     </form>
 </template>
-
+ 
 <script>
     export default {
         data () { /* ES2015 equivalent for: `data: function () {` */

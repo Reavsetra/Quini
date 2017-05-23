@@ -29520,17 +29520,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "equipo"
     }, [_c('img', {
       attrs: {
-        "src": "http://fpoimg.com/60x60?text=Logo",
+        "src": item.localUrl,
         "alt": ""
       }
     }), _vm._v("\n                " + _vm._s(item.localName) + "\n            ")]), _vm._v(" "), _c('div', {
       staticClass: "equipo"
     }, [_c('img', {
       attrs: {
-        "src": "http://fpoimg.com/60x60?text=Logo",
+        "src": item.visitanteUrl,
         "alt": ""
       }
-    }), _vm._v("\n                " + _vm._s(item.visitanteName) + "\n            ")]), _vm._v(" "), _c('div', {
+    }), _vm._v("\n                " + _vm._s(item.visitanteName) + " \n            ")]), _vm._v(" "), _c('div', {
       staticClass: "resultado"
     }, [_c('input', {
       directives: [{

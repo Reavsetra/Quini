@@ -43,21 +43,17 @@
 
   <div class="container">
     <div class="row">
-    @foreach ($equipos as $equipo)
-
-        <div class="col s12 m3">
-        <div class="card">
-          <div class="card-image">
-            <img src="/img/equipos/{{$equipo->path}}">
-            <span class="card-title white col m12 grey-text text-darken-4" style="text-transform:uppercase; " >{{$equipo->equipo}}</span>
-            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">create</i></a>
-          </div>
-
+  @foreach ($equipos as $equipo)
+    <div class="col s12 m3">
+      <div class="card">
+        <div class="card-image">
+          <img src="/img/equipos/{{$equipo->path}}">
+          <span class="card-title white col m12 grey-text text-darken-4" style="text-transform:uppercase; " >{{$equipo->equipo}}</span>
+          <a href="{{ route('equipos.show', $equipo->id) }}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">create</i></a>
         </div>
-        </div>
-
-
-      @endforeach
+      </div>
+    </div>
+  @endforeach
 
 
 

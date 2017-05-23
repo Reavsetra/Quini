@@ -23,41 +23,21 @@
         </div>
     </div>
 @endsection
-
+ 
 <script>
     var id_usuario = "{{ Auth::user()->id_usuario }}";
     var id_sorteo = "{{ $sorteo -> id}}";
     var alineacion = "{{ $sorteo -> alineacion}}";
-    var equipos = [
-        {
-            "id":1,
-            "equipo":"America",
-            "url":"img/equipos/america.jpg"
-        },{
-            "id":2,
-            "equipo":"Cruz Azul",
-            "url":"img/equipos/america.jpg"
-        },{
-            "id":3,
-            "equipo":"Chivas",
-            "url":"img/equipos/america.jpg"
-        },{
-            "id":4,
-            "equipo":"Monterrey",
-            "url":"img/equipos/america.jpg"
-        },{
-            "id":6,
-            "equipo":"Pumas",
-            "url":"img/equipos/america.jpg"
-        }
-    ];
+    var strEq = "{{ $equipos }}";
+    var equipos = JSON.parse(strEq.split("&quot;").join('"'));
+    console.log(equipos);
     var splsorteo = alineacion.split(",");
     function getLocal(current){
         var equipo ={};
         current = current-1;
         if(equipos[current]){
             equipo.name = equipos[current].equipo;
-            equipo.url = equipos[current].url;
+            equipo.url = "/img/equipos/"+equipos[current].path;
         }
         return equipo;
     };
@@ -66,7 +46,7 @@
         current = current-1;
         if(equipos[current]){
             equipo.name = equipos[current].equipo;
-            equipo.url = equipos[current].url;
+            equipo.url = "/img/equipos/"+equipos[current].path;
         }
         return equipo;
     };

@@ -5,7 +5,6 @@ namespace Quin\Http\Controllers;
 use Illuminate\Http\Request;
 use Quin\Equipos;
 
-
 class EquiposController extends Controller
 {
     /**
@@ -25,7 +24,6 @@ class EquiposController extends Controller
      */
     public function create()
     {
-
       $equipos = Equipos::select()->get();
       return view('equipos.registrar_equipo',['equipos'=>$equipos]);
     }
@@ -39,7 +37,7 @@ class EquiposController extends Controller
     public function store(Request $request)
     {
       Equipos::create($request->all());
-      return redirect('equipos/create');
+      return redirect()->route('equipos.create');
     }
 
     /**
@@ -51,6 +49,9 @@ class EquiposController extends Controller
     public function show($id)
     {
         //
+        $equipo = Equipos::where('id', $id)->first();
+
+        return view('equipos.editar')->with(['equipo'=> $equipo]);
     }
 
     /**
@@ -62,6 +63,7 @@ class EquiposController extends Controller
     public function edit($id)
     {
         //
+        
     }
 
     /**
@@ -73,7 +75,11 @@ class EquiposController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $equipo = Equipos::find($id);
+        $equipo->fill($request->all());
+        $equipo->save();
+
+        return redirect()->route('equipos.create');
     }
 
     /**

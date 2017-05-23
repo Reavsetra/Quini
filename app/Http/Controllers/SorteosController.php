@@ -3,6 +3,7 @@
 namespace Quin\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Quin\Equipos;
 
 class SorteosController extends Controller
 {
@@ -23,7 +24,8 @@ class SorteosController extends Controller
      */
     public function create()
     {
-        return view('sorteos.register');
+        $equipos = Equipos::all();
+        return view('sorteos.register',['equipos'=>$equipos]);
     }
 
     /**
